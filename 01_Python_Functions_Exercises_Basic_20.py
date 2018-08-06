@@ -55,12 +55,37 @@ def multiply_all(list):
 	return num
 
 list = [8,2,3,-1,7]
-print(multiply_all(list))
+#print(multiply_all(list))
 
 # 4. Write a function to reverse a string
 
 # Sample string: "1234abcd"
 # Expected Output: "dcba4321"
 
+def string_reverse(str):
+	rstr = ''
+	index = len(str)
+	while index > 0:
+		rstr += str[index - 1]
+		index -= 1
+	return rstr
+
+#print(string_reverse('1234abcd'))
+
+
+# 5.Write a function to calculate the factorial of a number (non-negative integer)
+# Sample number : 5
+# Out: 5*4*3*2*1 = 120
+
+def get_factorial(num):
+	factorial = 1
+	if num == 0:
+		return 1
+	else:
+		for i in range(1, num + 1):
+			factorial = factorial * i
+		return factorial
+
+print(get_factorial(5))
 
 
