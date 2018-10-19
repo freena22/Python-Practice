@@ -88,4 +88,13 @@ def get_factorial(num):
 
 print(get_factorial(5))
 
+# 6. Write a function to check whether a number is in a given range.
+
+
+#7. write a function that accepts a string and calculate the number of upper case letters and lower case letters
+# Sample String: 'The quick Brow Fox'
+# Expected Output: No. of Upper : 3 No. of lower: 12
+
+
+
 
