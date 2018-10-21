@@ -85,14 +85,62 @@ def good_length(input):
 
 
 ########## function 6: Count any character
-def count_ch(string, target):
+def count_ch_1(string, target): # for loop
 	count = 0
 	for ch in string:
 		if ch == target:
 			count += 1
 	print(count)
-count_ch("the goofy doom of the balloon goons", "o") # 9
+
+def count_ch_2(string, target): # while loop
+	index = 0
+	count = 0
+	while index < len(string):
+		if string[index] == target:
+			count += 1
+		index += 1
+	return count
+
+count_ch1("the goofy doom of the balloon goons", "o") # 9
 
 
+########## function 7: until dot function
+def until_dot_1(s):
+    index = 0
+    while index < len(s) and s[index] != '.':
+        # No dots yet, keep going.
+        index += 1
+    # We either found a dot or ran out of string.
+    return s[:index]
 
+def until_dot_2(s):
+    for index in range(len(s)):
+        if s[index] == '.':
+            # A dot! Return everything up to here.
+            return s[:index-1]
+    # We ran out of string without seeing any dots.
+    # Return the whole string.
+    return s
 
+until_dot("This is a sentence. This is another.")
+# 'This is a sentence'
+
+########### function 8: no repeating input 
+def no_repeating():
+    words = []
+    while True:
+        word = input("Tell me a word: ")
+        if word in words:
+            print("You told me that word already!")
+            break
+        words.append(word)
+    return words
+'''putput
+Tell me a word: luka
+Tell me a word: luki
+Tell me a word: lumi
+Tell me a word: lucy
+Tell me a word: luka
+You told me that word already!
+['luka', 'luki', 'lumi', 'lucy']
+'''
