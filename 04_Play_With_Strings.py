@@ -144,3 +144,38 @@ Tell me a word: luka
 You told me that word already!
 ['luka', 'luki', 'lumi', 'lucy']
 '''
+
+########### function 9: extract the place name for photo file names -- "2016-03-12_Yosemite_02:12:32.jpg"
+def extract_place1(filename):
+    first = filename.find("-")
+    partial = filename[first + 1:]
+    second = partial.find("-")
+    return partial[:second]
+
+def extract_place(filename):
+    return filename.split("_")[1]
+
+def make_place_directories(places):
+    for place in places:
+        os.mkdir(place)
+def organize_photoes(directory):
+    # first, extract place names
+    os.chdir(directory)
+    originals = os.listdir()
+    places = []
+    for filename in originals:
+        place = extract_place(filename)
+        if place not in places:
+            places.append(place) # avoid duplicates
+    # second, make place directories
+    make_place_directories(places)
+
+    # finally, move files to directories
+    for filename in originals:
+        place = extract_place(filename)
+        os.rename(filename, os.path.join(place, filename))
+
+
+if __name__ == '__main__':
+    
+
